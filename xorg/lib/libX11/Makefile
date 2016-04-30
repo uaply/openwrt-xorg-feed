@@ -44,6 +44,7 @@ define Build/Configure
 		--enable-xf86bigfont \
 		--without-xcb \
 		--without-launchd \
+		--disable-specs \
 	)
 endef
 
