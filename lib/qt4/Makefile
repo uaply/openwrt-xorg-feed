@@ -12,12 +12,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=qt4
-PKG_VERSION:=4.8.1
+PKG_VERSION:=4.8.6
 PKG_RELEASE:=1
-PKG_MD5SUM:=7960ba8e18ca31f0c6e4895a312f92ff
+PKG_MD5SUM:=2edbe4d6c2eff33ef91732602f3518eb
 
 PKG_SOURCE:=qt-everywhere-opensource-src-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=ftp://ftp.qt.nokia.com/qt/source
+PKG_SOURCE_URL:=http://download.qt.io/archive/qt/$(basename $(PKG_VERSION))/$(PKG_VERSION)
 PKG_BUILD_DIR=$(BUILD_DIR)/qt-everywhere-opensource-src-$(PKG_VERSION)
 PKG_BUILD_PARALLEL:=1
 
@@ -58,7 +58,7 @@ define Package/qt4/Default
   TITLE:=qt4
   DEPENDS:=qt4
   DEFAULT:=m if PACKAGE_qt4-gui && ALL
-  URL:=http://qt.nokia.com/
+  URL:=http://www.qt.io/
   MAINTAINER:=Mirko Vogt <mirko@openwrt.org>
 endef
 
@@ -102,7 +102,7 @@ endef
 define Package/qt4-mysql
   $(call Package/qt4/Default)
   TITLE+=(mysql)
-  DEPENDS+=+PACKAGE_qt4-mysql:libmysqlclient
+  DEPENDS+=+PACKAGE_qt4-mysql:libmysqlclient-r
 endef
 
 define Package/qt4-pgsql
