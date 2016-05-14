@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pyqt4
-PKG_VERSION:=4.8.3
+PKG_VERSION:=4.8.5
 PKG_RELEASE:=1
 
 PKG_SOURCE:=PyQt-x11-gpl-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=http://bu3sch.de/pyqt4/
-PKG_MD5SUM:=d54fd1c37a74864faf42709c8102f254
+PKG_MD5SUM:=0e4264bb912edfbda319bb236ac84407
+PKG_SOURCE_URL:=http://pkgs.fedoraproject.org/repo/pkgs/PyQt4/$(PKG_SOURCE)/$(PKG_MD5SUM)/
 PKG_BUILD_DIR:=$(BUILD_DIR)/PyQt-x11-gpl-$(PKG_VERSION)
 PKG_INSTALL:=1
 PKG_BUILD_PARALLEL:=1
@@ -31,7 +31,7 @@ define Package/pyqt4
   TITLE:=Python QT4
   MAINTAINER:=Michael Buesch <mb@bu3sch.de>
   URL:=http://www.riverbankcomputing.co.uk/software/pyqt/download
-  DEPENDS:=+qt4 +qt4-gui +dbus-python +python +python-sip @FEATURE_drawing-backend_libX11
+  DEPENDS:=+qt4 +qt4-gui +qt4-xml +dbus-python +python +python-sip @FEATURE_drawing-backend_libX11
 endef
 
 define Package/pyqt4/Description
@@ -131,6 +131,10 @@ define Build/Configure
 			--no-qsci-api \
 			--confirm-license \
 			--verbose \
+			--enable=QtCore \
+			--enable=QtGui \
+			--enable=QtNetwork \
+			--enable=QtXml \
 	)
 	./files/fixup.sh "$(PKG_BUILD_DIR)"
 endef
@@ -147,7 +151,6 @@ define Package/pyqt4/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/$(PYTHON_PKG_DIR)/PyQt4
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/{pylupdate4,pyrcc4,pyuic4} $(1)/usr/bin
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/$(PYTHON_PKG_DIR)/qt.so $(1)/$(PYTHON_PKG_DIR)
 	$(CP) $(PKG_INSTALL_DIR)/$(PYTHON_PKG_DIR)/PyQt4 $(1)/$(PYTHON_PKG_DIR)
 endef
 
