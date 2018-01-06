@@ -64,7 +64,7 @@ endef
 
 define Package/qt4
   $(call Package/qt4/Default)
-  DEPENDS:=+zlib +librt +libstdcpp +libiconv-full @!LINUX_2_4
+  DEPENDS:=+zlib +librt +libstdcpp $(ICONV_DEPENDS) @!LINUX_2_4
 endef
 
 define Package/qt4-gui
@@ -378,7 +378,7 @@ define Build/Configure
 			$(if $(CONFIG_PACKAGE_qt4-openssl),-openssl -I $(STAGING_DIR)/usr/include,-no-openssl) \
 			-no-nis \
 			-no-cups \
-			-iconv \
+			$(if $(CONFIG_BUILD_NLS),-iconv,-no-iconv) \
 			$(if $(CONFIG_PACKAGE_qt4-dbus),-dbus,-no-dbus) \
 			-no-gtkstyle \
 			-no-nas-sound \
