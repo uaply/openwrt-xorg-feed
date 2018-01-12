@@ -37,6 +37,8 @@ desktop() {
 
 start() {
 	export DISPLAY=":0"
+	export HOME="/root"
+	cd $HOME
 	config_load x11
 #	config_foreach screen screen
 #	config_foreach graphic graphic
