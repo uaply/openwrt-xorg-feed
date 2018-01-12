@@ -9,21 +9,21 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=fluxbox
-PKG_VERSION:=1.0.0
+PKG_VERSION:=1.3.7
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@SF/fluxbox
-PKG_MD5SUM:=990e276ead0d04421dce4080f485caca
+PKG_MD5SUM=c4701822d8a09d426ebf26e7e97c552a
 
 EXTRA_LDFLAGS:="-Wl,-rpath-link=$(STAGING_DIR)/usr/lib"
 
 include $(INCLUDE_DIR)/package.mk
 
-CONFIGURE_VARS+=LIBS="-nodefaultlibs -luClibc++ -Wl,-Bstatic,-lstdc++,-Bdynamic -lm $(LIBGCC_S)" \
-		CXXLD="$(TARGET_CC)" 
+#CONFIGURE_VARS+=LIBS="-nodefaultlibs -luClibc++ -Wl,-Bstatic,-lstdc++,-Bdynamic -lm $(LIBGCC_S)" \
+#		CXXLD="$(TARGET_CC)" 
 
-CONFIGURE_ARGS+=--disable-xmb
+#CONFIGURE_ARGS+=--disable-xmb
 
 define Package/fluxbox/Default
   SECTION:=xorg-wm
@@ -34,7 +34,7 @@ endef
 
 define Package/fluxbox
 $(call Package/fluxbox/Default)
-  DEPENDS:=+uclibcxx +libXt +libXpm
+  DEPENDS:=+uclibcxx +libXt +libXpm +libXft +libXrender +libfontconfig +libfreetype +libstdcpp +libXrandr
   TITLE:=fluxbox window manager
   MENU:=1
 endef
