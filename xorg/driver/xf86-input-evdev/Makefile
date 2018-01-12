@@ -9,12 +9,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xf86-input-evdev
 PKG_RELEASE:=2
-PKG_VERSION:=2.3.0
+PKG_VERSION:=2.6.0
 
 PKG_SOURCE_URL:=http://xorg.freedesktop.org/releases/individual/driver
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_BUILD_DIR:=$(BUILD_DIR)/Xorg/$(PKG_NAME)-$(PKG_VERSION)/
-PKG_MD5SUM:=21dac6461379d67ee3b333c77f63e7bf
+PKG_MD5SUM:=f33fe9413bde68936d8909206a13e8a1
 
 PKG_FIXUP:=libtool
 PKG_INSTALL:=1

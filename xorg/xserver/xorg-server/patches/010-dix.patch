@@ -1,0 +1,10 @@
+--- a/dix/window.c
++++ b/dix/window.c
+@@ -126,6 +126,7 @@
+ #include "dixevents.h"
+ #include "globals.h"
+ #include "mi.h" /* miPaintWindow */
++#include "selection.h"
+
+ #include "privates.h"
+ #include "xace.h"

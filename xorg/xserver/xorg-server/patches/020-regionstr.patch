@@ -1,0 +1,19 @@
+--- a/include/regionstr.h	2018-01-11 21:11:42.756124155 +0200
++++ a/include/regionstr.h.new	2018-01-11 21:14:49.000000000 +0200
+@@ -132,6 +132,8 @@
+     miRegionBreak(_pReg)
+ 
+ #define REGION_INIT(_pScreen, _pReg, _rect, _size) \
++_Pragma ("GCC diagnostic push") \
++_Pragma ("GCC diagnostic ignored \"-Waddress\"") \
+ { \
+     if ((_rect) != NULL)				\
+     { \
+@@ -151,6 +153,7 @@
+             (_pReg)->data = &miEmptyData; \
+     } \
+  }
++_Pragma ("GCC diagnostic pop")
+ 
+ 
+ #define REGION_UNINIT(_pScreen, _pReg) \

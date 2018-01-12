@@ -9,13 +9,13 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=Mesa
 PKG_RELEASE:=2
-PKG_VERSION:=7.2
+PKG_VERSION:=7.7
 
-PKG_SOURCE_URL:=@SF/mesa3d
+PKG_SOURCE_URL:=http://mesa.freedesktop.org/archive/older-versions/7.x/$(PKG_VERSION)/
 PKG_SOURCE:=$(PKG_NAME)Lib-$(PKG_VERSION).tar.bz2
-PKG_MD5SUM:=04d379292e023df0b0266825cb0dbde5
+PKG_MD5SUM:=e3fa64a1508bc23dd9de9dd2cea7cfb1
 PKG_FIXUP:=libtool
-PKG_BUILD_DEPENDS:=glproto
+PKG_BUILD_DEPENDS:=glproto dri2proto
 
 include $(INCLUDE_DIR)/package.mk
 

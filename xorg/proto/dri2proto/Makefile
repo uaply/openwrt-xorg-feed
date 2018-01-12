@@ -8,13 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=dri2proto
-PKG_VERSION:=2.1
+PKG_VERSION:=2.8
 PKG_RELEASE:=1
 
 PKG_SOURCE_URL:=http://xorg.freedesktop.org/releases/individual/proto/
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_BUILD_DIR:=$(BUILD_DIR)/Xorg/$(PKG_NAME)-$(PKG_VERSION)/
-PKG_MD5SUM:=5cb7987d29db068153bdc8f23c767c43
+PKG_MD5SUM:=b2721d5d24c04d9980a0c6540cb5396a
 
 include $(INCLUDE_DIR)/package.mk
 
