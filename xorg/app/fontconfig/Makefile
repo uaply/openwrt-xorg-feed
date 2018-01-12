@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=fontconfig
-PKG_VERSION:=2.6.0
+PKG_VERSION:=2.8.0
 PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://fontconfig.org/release/
-PKG_MD5SUM:=ab54ec1d4ddd836313fdbc0cd5299d6d
+PKG_MD5SUM:=77e15a92006ddc2adbb06f840d591c0e
 PKG_FIXUP:=libtool
 PKG_INSTALL:=1
 
@@ -27,6 +27,8 @@ define Package/fontconfig
   DEPENDS:=+libexpat +libfreetype
   URL:=http://fontconfig.org/
 endef
+
+EXTRA_CFLAGS+= -I${STAGING_DIR}/usr/include/freetype2
 
 CONFIGURE_ARGS+= \
 	--disable-docs \
