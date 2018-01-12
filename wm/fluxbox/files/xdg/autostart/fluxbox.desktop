@@ -1,0 +1,2 @@
+[Desktop Entry]
+Exec=fluxbox 2> /var/log/fluxbox.log

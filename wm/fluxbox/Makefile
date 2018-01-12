@@ -74,6 +74,7 @@ define Package/fluxbox/install
 	$(INSTALL_DATA) \
 		./files/uci-defaults/x11 \
 		$(1)/etc/uci-defaults/
+	$(CP) files/xdg/ $(1)/etc/
 endef
 
 define Package/fbsetbg/install
