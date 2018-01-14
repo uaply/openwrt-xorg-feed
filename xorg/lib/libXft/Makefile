@@ -10,12 +10,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libXft
 PKG_RELEASE:=1
-PKG_VERSION:=2.1.14
+PKG_VERSION:=2.3.2
 
 PKG_SOURCE_URL:=http://xorg.freedesktop.org/releases/individual/lib/
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_BUILD_DIR:=$(BUILD_DIR)/Xorg/$(PKG_NAME)-$(PKG_VERSION)/
-PKG_MD5SUM:=254e62a233491e0e1251636536163e20
+PKG_MD5SUM:=331b3a2a3a1a78b5b44cfbd43f86fcfe
 
 PKG_FIXUP:=libtool
 PKG_INSTALL:=1
