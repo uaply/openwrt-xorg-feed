@@ -9,12 +9,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=xterm
-PKG_VERSION:=242
+PKG_VERSION:=288
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=ftp://mirror1.openwrt.org/
-PKG_MD5SUM:=663fa3aac8e30e4c2d4bf07c0aee4dca
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tgz
+PKG_SOURCE_URL:=https://invisible-mirror.net/archives/xterm/
+PKG_MD5SUM:=b9bef1abf6e397be6fa2e5f534964d17
 
 PKG_INSTALL:=1
 
@@ -25,7 +25,7 @@ define Package/xterm
   CATEGORY:=Xorg
   SUBMENU:=terminals
   TITLE:=xterm
-  DEPENDS:=+libX11 +libncurses +libXaw
+  DEPENDS:=+libX11 +libncurses +libXaw +libXft +libXext +libXt +libSM +libICE
 endef
 
 define Build/Configure
