@@ -11,7 +11,7 @@ PKG_NAME:=xf86-video-modesetting
 PKG_VERSION:=0.9.0
 PKG_RELEASE:=1
 
-PKG_SOURCE_URL:=http://cgit.freedesktop.org/xorg/driver/xf86-video-modesetting/snapshot/
+PKG_SOURCE_URL:=http://xorg.freedesktop.org/releases/individual/driver
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_BUILD_DIR:=$(BUILD_DIR)/Xorg/$(PKG_NAME)-$(PKG_VERSION)/
 PKG_MD5SUM=cd7d062b83e6bba74da4e56d62b92b1e
