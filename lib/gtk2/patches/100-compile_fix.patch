@@ -1,30 +1,38 @@
---- a/gtk/Makefile.am
-+++ b/gtk/Makefile.am
-@@ -1126,12 +1126,6 @@
+--- gtk+-2.19.7/gtk/Makefile.am	2010-02-23 06:39:18.000000000 +0200
++++ gtk+-2.19.7/gtk/Makefile.am.new	2018-01-15 01:30:13.000000000 +0200
+@@ -1364,11 +1364,11 @@
  	   ./gtk-update-icon-cache
  endif
  
 -gtkbuiltincache.h: @REBUILD@ stamp-icons
--	$(MAKE) $(AM_MAKEFLAGS) gtk-update-icon-cache$(EXEEXT)
+-	$(MAKE) $(AM_MAKEFLAGS) gtk-update-icon-cache$(EXEEXT) $(GTK_UPDATE_ICON_CACHE_MANIFEST)
 -	$(gtk_update_icon_cache_program) --force --ignore-theme-index		\
 -	   --source builtin_icons stock-icons > gtkbuiltincache.h.tmp &&        \
 -	mv gtkbuiltincache.h.tmp gtkbuiltincache.h
--
++#gtkbuiltincache.h: @REBUILD@ stamp-icons
++#	$(MAKE) $(AM_MAKEFLAGS) gtk-update-icon-cache$(EXEEXT) $(GTK_UPDATE_ICON_CACHE_MANIFEST)
++#	$(gtk_update_icon_cache_program) --force --ignore-theme-index		\
++#	   --source builtin_icons stock-icons > gtkbuiltincache.h.tmp &&        \
++#	mv gtkbuiltincache.h.tmp gtkbuiltincache.h
+ 
  EXTRA_DIST +=                   \
  	$(STOCK_ICONS)		\
- 	$(GENERATED_ICONS)	\
---- a/gtk/Makefile.in
-+++ b/gtk/Makefile.in
-@@ -2970,12 +2970,6 @@
- 	done									\
+--- gtk+-2.19.7/gtk/Makefile.in	2018-01-15 01:23:22.165374942 +0200
++++ gtk+-2.19.7/gtk/Makefile.in.new	2018-01-15 01:30:01.000000000 +0200
+@@ -3233,11 +3233,11 @@
+ 	) done								\
  	&& touch stamp-icons
  
 -gtkbuiltincache.h: @REBUILD@ stamp-icons
--	$(MAKE) $(AM_MAKEFLAGS) gtk-update-icon-cache$(EXEEXT)
+-	$(MAKE) $(AM_MAKEFLAGS) gtk-update-icon-cache$(EXEEXT) $(GTK_UPDATE_ICON_CACHE_MANIFEST)
 -	$(gtk_update_icon_cache_program) --force --ignore-theme-index		\
 -	   --source builtin_icons stock-icons > gtkbuiltincache.h.tmp &&        \
 -	mv gtkbuiltincache.h.tmp gtkbuiltincache.h
--
++#gtkbuiltincache.h: @REBUILD@ stamp-icons
++#	$(MAKE) $(AM_MAKEFLAGS) gtk-update-icon-cache$(EXEEXT) $(GTK_UPDATE_ICON_CACHE_MANIFEST)
++#	$(gtk_update_icon_cache_program) --force --ignore-theme-index		\
++#	   --source builtin_icons stock-icons > gtkbuiltincache.h.tmp &&        \
++#	mv gtkbuiltincache.h.tmp gtkbuiltincache.h
+ 
  install-data-local:
- # Tell versions [3.59,3.63) of GNU make to not export all variables.
- # Otherwise a system limit (for SysV at least) may be exceeded.
+ 

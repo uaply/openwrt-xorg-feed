@@ -9,12 +9,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=pango
-PKG_VERSION:=1.28.4
+PKG_VERSION:=1.30.1
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=@GNOME/$(PKG_NAME)/1.28/
-PKG_MD5SUM:=3f3989700f04e9117d30544a9078b3a0
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
+PKG_SOURCE_URL:=@GNOME/$(PKG_NAME)/1.31/
+PKG_MD5SUM:=ec3c1f236ee9bd4a982a5f46fcaff7b9
 
 PKG_FIXUP:=autoreconf
 PKG_INSTALL:=1
@@ -25,6 +25,7 @@ include $(INCLUDE_DIR)/nls.mk
 
 TARGET_LDFLAGS+= \
 	-Wl,-rpath-link=$(STAGING_DIR)/usr/lib
+TARGET_CFLAGS=-liconv
 
 define Package/pango
   SECTION:=xorg-libraries
